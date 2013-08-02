@@ -1,0 +1,17 @@
+#!/bin/sh
+
+command -v cmake >/dev/null 2>&1 || { echo "I require cmake but it's not installed. Aborting." >&2; exit 1; }
+command -v make >/dev/null 2>&1 || { echo "I require make but it's not installed. Aborting." >&2; exit 1; }
+
+# Setup Out-of-source builds
+mkdir -p build/debug
+cd build/debug
+cmake -DCMAKE_BUILD_TYPE=Debug ../../
+make $1 $2
+
+cd ../../
+
+mkdir -p build/release
+cd build/release
+cmake -DCMAKE_BUILD_TYPE=Release ../../
+make $1 $2
