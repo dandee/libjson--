@@ -7,7 +7,7 @@ project(libjson--)
 # ======================================
 #
 # Minimal OS X SDK Version
-set(OSX_SDK_VER "10.7")
+set(OSX_SDK_VER "10.8")
 # Default optimization level for Release builds
 set(DEF_OPT_LEVEL "-O3")
 #
@@ -38,7 +38,7 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin" OR ${CMAKE_SYSTEM_NAME} MATCHES "Linux
     set(CMAKE_C_COMPILER "clang")
     set(CMAKE_CXX_COMPILER "clang++")
     add_definitions("-std=c++11 -Wc++11-extensions")
-    set(DEF_OPT_LEVEL "-O4")
+    set(DEF_OPT_LEVEL "-Ofast")
 
     if (${CLANG_MAJOR} GREATER "3" OR (${CLANG_MAJOR} EQUAL "3" OR ${CLANG_MINOR} GREATER "1"))
       add_definitions("-Wno-tautological-compare")
